@@ -27,7 +27,7 @@
 		type: 'instructions',
 		//data: {test_part: 'instructions'},
    		pages: [
-        header + '<h2>Instructions</h2><p>This study will take about 15 minutes and involves several different tasks. Many of the tasks will have an audio clip. Please <strong>put on your headphones</strong>. To make sure your headphones are set to a comfortable volume, play the following audio clip and adjust accordingly.</p><audio preload="auto" controls><source src="shared_assets/audio/sample.mp3" type="audio/mpeg"></audio><p>You will be given three breaks throughout the study. When you have adjusted your headphones and are ready to begin, press Next to begin the study</p>'
+        header + '<h2>Instructions</h2><p>This study involves tasks that involves listening to audio clips. Please <strong>put on your headphones</strong>. To make sure your headphones are set to a comfortable volume, play the following audio clip and adjust accordingly.</p><audio preload="auto" controls><source src="shared_assets/audio/sample.mp3" type="audio/mpeg"></audio><p>This study also requires that you breathe through your nose. If you have a cold and are unable to do this, you are not eligible for the study. Please consider doing this study another day.<p>You will be given three breaks throughout the study. This study takes about 15 minutes. When you are ready to begin, press Next to begin the study</p>'
     ],
     	show_clickable_nav: true,
     	button_label_next: 'Next',
