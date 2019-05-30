@@ -175,6 +175,32 @@ There is a brief practice phase before the actual study begins. Press any key to
 		}
 	};
 	
+//pauses experiment for breaks
+	//var trial = {
+  		//type: 'html-keyboard-response',
+  		//stimulus: 'Press p to take a 30 second break. Otherwise, press c to continue immediately.',
+  		//choices: ['p','c'],
+ 		// on_finish: function(data){
+   		// if(data.key_press == 80) { // 80 = p
+     	// jsPsych.pauseExperiment();
+      //setTimeout(jsPsych.resumeExperiment, 30000);
+   		//	 }
+  	//		}
+	//	};
+	
+	//resumes experiment after breaks
+	//var trial = {
+  		//type: 'html-keyboard-response',
+		//stimulus: 'Press p to take a 30 second break. Otherwise, press c to continue immediately.',
+ 	 	//choices: ['p','c'],
+  		//on_finish: function(data){
+    	//	if(data.key_press == 80) { // 80 = p
+      		//jsPsych.pauseExperiment();
+      		//setTimeout(jsPsych.resumeExperiment, 30000);
+    		//}
+  		//}
+	//};
+
 	//main procedures (4, one each for dleft/dright, nose/mouth)
 	var main_procedure_dleft_nose = {
 		timeline: [
