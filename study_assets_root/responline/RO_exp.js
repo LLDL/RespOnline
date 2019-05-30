@@ -3,16 +3,33 @@
 		the value between the <title> tags is what shows up as the title of the webpage.
 		the next 3 lines, both <script> tags, tell it to use certain modules of jspsych.
 		after that, we add a reference to JATOS so that we'll be able to use that, too!
-			<script src="/assets/javascripts/jatos.js"><\/script> \\delete the other \
+			<script src="/assets/javascripts/jatos.js"><\/script> 
+			\\delete the other \
 		then the <link> tags part controls the aesthetic look of the study.
 		I don't know what the <body> tags do, but I assume it's important :)
 		then we get into the body of the experiment.
-		
-		RespOnline, experiment where participants listen to sounds along three continua, 
-		breathing through either their nose or their mouth, and identify the sounds.
+
+Description
+In RespOnline, participants listen to sounds along three continua (d-b, d-n, m-n), 
+while breathing through either their nose or their mouth, and identify the sounds. 
+Participants first complete the online consent form and questionnaire. Afterwards, participants
+receive instructions on-screen which allows them to adjust the volume to a comfortable level.
+On this instructions page, participants are also told that the study requires them to breathe
+through their nose and that if they are unable to do so, that they are not eligible for the study.
+The text also advises that the participant considers completing the study another day if they
+are currently experiencing a cold. After they have read the instructions and have adjusted
+their volume, participants are randomly assigned to be instructed either to breathe through 
+their nose first then breathe through their mouth, or vice versa. Stimuli will be presented the 
+following order: 1) crosshair is quickly shown on the screen, 2) audio is played on a blank screen,
+3) one of the following is displayed on the screen: "D or B?","D or N?", "M or N?". Participants will
+identify which sound they heard by pressing the left or right arrow key (e.g. "D or B?", D = left, 
+B = right). Within each condition (nose, mouth), participants will be given 3 breaks. After 
+completing all trials, participants will be thanked for their participation and given a participant 
+ID (so we can identify people) which they will need to provide when they claim their RPS credits 
+from the lab.
 	*/
 	
-	//blur count
+	//blur count; counts how many times a subject changes out of the experiment tab -- too many will result in an invalid trial
 	var blur_count = 0; //number of times subject's focus leaves tab
 	var likely_invalid = false; //gets set to true if blur_count>threshold
 	
@@ -27,7 +44,14 @@
 		type: 'instructions',
 		//data: {test_part: 'instructions'},
    		pages: [
-        header + '<h2>Instructions</h2><p>This study involves tasks that involves listening to audio clips. Please <strong>put on your headphones</strong>. To make sure your headphones are set to a comfortable volume, play the following audio clip and adjust accordingly.</p><audio preload="auto" controls><source src="shared_assets/audio/sample.mp3" type="audio/mpeg"></audio><p>This study also requires that you breathe through your nose. If you have a cold and are unable to do this, you are not eligible for the study. Please consider doing this study another day.<p>You will be given three breaks throughout the study. This study takes about 15 minutes. When you are ready to begin, press Next to begin the study</p>'
+        header + '<h2>Instructions</h2><p>This study involves tasks that involve listening to audio clips.' +
+			'Please <strong>put on your headphones</strong>. To make sure your headphones are set to a' +
+			'comfortable volume, play the following audio clip and adjust accordingly.</p><audio preload="auto" controls><source src="shared_assets/audio/sample.mp3" type="audio/mpeg"></audio>' + 
+			'<p>This study also requires you to breathe through your nose. If you have a cold' + 
+			'or are unable to do this due to other reasons, you are <strong>not</strong> eligible for the study.' + 
+			'If you currently experiencing a cold, please consider doing this study another day.</p>' + 
+			'<p>This study takes about 15 minutes. You will be given three breaks throughout the study.' + 
+			'When you are ready to begin, press Next to begin the study.</p>',
     ],
     	show_clickable_nav: true,
     	button_label_next: 'Next',
