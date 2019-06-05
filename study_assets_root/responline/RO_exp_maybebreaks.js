@@ -176,7 +176,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		type: 'html-keyboard-response',
 		stimulus: "",
 		data: jsPsych.timelineVariable('data'),
-		prompt: function(){return "Do you hear "+jsPsych.timelineVariable('segments',true);},
+		prompt: function(){return "Do you hear <p>"+jsPsych.timelineVariable('segments',true);},
 		choices: jsPsych.timelineVariable('choices'),
 		on_finish: function(data){
 			if(data.key_press){
@@ -190,8 +190,10 @@ There is a brief practice phase before the actual study begins. Press any key to
 	};
 	
 	var nose_rest = {
-		type: 'html-keyboard-response',
-		stimulus: '<p>Break time!</p><p> Feel free to breathe as you like, </p><p>but please stay on this screen.</p><p>Remember to return to nose-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>',
+		type: "instructions",
+		pages: [
+		"<p>Break time!</p><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to nose-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>"
+		],
   	 	show_clickable_nav: true,
     	button_label_next: 'Next',
     	allow_keys: false
@@ -200,8 +202,10 @@ There is a brief practice phase before the actual study begins. Press any key to
 	};
 	
 	var mouth_rest = {
-		type: 'html-keyboard-response',
-		stimulus: '<p>Break time!</p><p> Feel free to breathe as you like, </p><p>but please stay on this screen.</p><p>Remember to return to nose-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>',
+		type: "instructions",
+		pages: [
+		"<p>Break time!</p><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to mouth-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>"
+		],
   	 	show_clickable_nav: true,
     	button_label_next: 'Next',
     	allow_keys: false
@@ -210,7 +214,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 	};
 		
 	// test stimuli bank ??????
-/* var test_stimuli = [
+	var test_stimuli = [
 	{stimulus: 'audio/bd/stimulus003.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus004.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus005.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
@@ -452,11 +456,11 @@ There is a brief practice phase before the actual study begins. Press any key to
 			{stimulus: 'audio/mn/060.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/061.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/062.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}}
-			],
+			];
 			
 	// ??????? I found this
-	var sample = jsPsych.randomization.sampleWithoutReplacement(test_stimuli, 80);		
-			*/
+	//var sample = jsPsych.randomization.sampleWithoutReplacement(test_stimuli, 80);		
+			
 		
 
 	//main procedures (4, one each for dleft/dright, nose/mouth)
