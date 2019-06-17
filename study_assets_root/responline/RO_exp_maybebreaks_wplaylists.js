@@ -487,7 +487,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -501,7 +501,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -515,7 +515,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -530,7 +530,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -544,7 +544,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -558,7 +558,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -573,7 +573,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -587,7 +587,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -601,7 +601,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -616,7 +616,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -630,7 +630,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
@@ -644,7 +644,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 3 // x trials, without replacement
+			size: 80 // x trials, without replacement
 		}
 	};
 	
