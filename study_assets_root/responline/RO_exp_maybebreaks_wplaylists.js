@@ -742,7 +742,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli1,
+		timeline_variables: test_stimuli_nose1,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -756,7 +756,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli2,
+		timeline_variables: test_stimuli_nose2,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -770,7 +770,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli3,  
+		timeline_variables: test_stimuli_nose3,  
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -785,7 +785,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli1,
+		timeline_variables:  test_stimuli_mouth1,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -799,7 +799,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli2,  
+		timeline_variables:  test_stimuli_mouth2,  
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -813,7 +813,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli3, 
+		timeline_variables:  test_stimuli_mouth3, 
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -828,7 +828,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli1,  
+		timeline_variables:  test_stimuli_nose1,  
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -842,7 +842,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli2, 
+		timeline_variables: test_stimuli_nose2, 
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -856,7 +856,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli3, 
+		timeline_variables:  test_stimuli_nose3, 
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -871,7 +871,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli1, 
+		timeline_variables: test_stimuli_mouth1, 
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -885,7 +885,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli2,
+		timeline_variables: test_stimuli_mouth2,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
@@ -899,7 +899,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli3,
+		timeline_variables: test_stimuli_mouth3,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
