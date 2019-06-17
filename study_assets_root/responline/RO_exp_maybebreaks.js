@@ -618,7 +618,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline_variables: test_stimuli2,
 		randomize_order: true,
 		sample : {
-			type: 'without-replacement',t
+			type: 'without-replacement',
 		}
 	};
 	
