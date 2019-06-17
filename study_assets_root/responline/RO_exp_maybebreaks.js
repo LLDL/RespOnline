@@ -133,23 +133,25 @@ There is a brief practice phase before the actual study begins. Press any key to
 		trial_duration: 2000
 	};
 	
-	//get an integer between 0-99 
-	randomint = Math.floor(Math.random()*100);
+	//get an integer between 0-119 
+	randomint = Math.floor(Math.random()*120);
 
 	//random choice between mouth block and nose block, dleft and dright
-	if(randomint > 74){
+	//dleft
+	if(randomint > 89){
 		timeline.push(nose_instr);
 		dvalue = "leftarrow";
 		nvalue = "rightarrow";
-	} else if(randomint > 49){
+	} else if(randomint > 59){
 		timeline.push(mouth_instr);
 		dvalue = "leftarrow";
 		nvalue = "rightarrow";
-	} else if(randomint > 24){
+	//dright
+	} else if(randomint > 29){
 		timeline.push(nose_instr);
 		dvalue = "rightarrow";
 		nvalue = "leftarrow";
-	} else if(randomint < 25){
+	} else if(randomint < 30){
 		timeline.push(mouth_instr);
 		dvalue = "rightarrow";
 		nvalue = "leftarrow";
@@ -213,364 +215,745 @@ There is a brief practice phase before the actual study begins. Press any key to
 		trial_duration: 1100 */
 	};
 		
-	// test stimuli bank ??????
-	var test_stimuli = [
-	{stimulus: 'audio/bd/stimulus003.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus004.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+	// test stimuli bank; 3 different playlists 
+	// playlist 1
+	var test_stimuli1 = [
+			{stimulus: 'audio/bd/stimulus002.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus005.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus006.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus007.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus008.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus009.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus010.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus011.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus012.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus013.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus014.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus015.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus016.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus017.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus018.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus019.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus020.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus021.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus022.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus023.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus024.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus025.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus026.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus027.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus028.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus029.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus030.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus031.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus032.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus033.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus034.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus035.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus036.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus037.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus038.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus039.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus040.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus041.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus012.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus013.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus014.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus015.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus016.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus017.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus018.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus019.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus020.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus021.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus022.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus023.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus024.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus025.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus026.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus027.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus028.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus029.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus030.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus031.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus032.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus033.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus034.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus035.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus036.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus037.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus038.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus039.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus040.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus041.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus042.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus043.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus044.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus045.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus046.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus047.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus048.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus049.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			{stimulus: 'audio/bd/stimulus050.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
-			{stimulus: 'audio/bd/stimulus051.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
 			//dn bracket now
-			{stimulus: 'audio/dn/018.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/019.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/020.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/021.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/022.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/023.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/024.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/025.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/026.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/027.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/028.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/029.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/030.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/031.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/032.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/033.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/034.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/035.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/036.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/037.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/038.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/039.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/040.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/041.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/042.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/043.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/044.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/045.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/046.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/047.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/048.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/049.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/050.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/051.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/052.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/053.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/054.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/055.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/056.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/057.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/028.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/029.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/030.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/031.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/032.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/033.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/034.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/035.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/036.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/037.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/038.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/039.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/040.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/041.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/042.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/043.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/044.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/045.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/046.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/047.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/048.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/049.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/050.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/051.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/052.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/053.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/054.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/055.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/056.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/057.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/058.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/059.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/060.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/061.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/062.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/063.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/064.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/065.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
-			{stimulus: 'audio/dn/066.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			{stimulus: 'audio/dn/067.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
 			//mn block
-			{stimulus: 'audio/mn/013.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/014.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/015.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/016.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/017.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/018.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/019.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/020.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/021.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/022.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/023.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/024.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/025.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/026.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/027.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/028.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/029.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/030.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/031.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/032.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/033.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/034.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/035.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/036.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/037.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/038.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/039.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/040.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/041.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/042.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/043.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/044.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/045.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/046.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/047.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/048.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/049.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/050.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/051.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/052.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/023.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/024.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/025.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/026.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/027.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/028.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/029.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/030.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/031.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/032.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/033.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/034.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/035.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/036.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/037.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/038.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/039.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/040.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/041.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/042.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/043.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/044.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/045.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/046.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/047.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/048.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/049.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/050.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/051.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/052.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/053.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/054.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/055.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/056.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/057.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/058.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/059.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/060.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/061.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
-			{stimulus: 'audio/mn/062.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}}
 			];
-			
-	// ??????? I found this
-	//var sample = jsPsych.randomization.sampleWithoutReplacement(test_stimuli, 80);		
-			
-		
-
-	//main procedures (4, one each for dleft/dright, nose/mouth)
-	var main_procedure_dleft_nose = {
+	
+	// playlist 2		
+	var test_stimuli2 = [
+			{stimulus: 'audio/bd/stimulus003.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus006.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus009.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus012.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus015.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus018.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus021.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus024.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus027.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus030.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus033.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus036.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus039.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus012.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus015.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus018.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus021.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus024.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus027.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus030.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus033.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus036.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus039.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus042.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus045.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus048.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus051.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			//dn bracket now
+			{stimulus: 'audio/dn/020.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/023.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/026.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/029.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/032.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/035.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/038.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/041.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/044.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/047.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/050.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/053.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/056.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/029.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/032.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/035.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/038.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/041.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/044.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/047.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/050.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/053.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/056.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/059.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/062.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/065.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			//mn block
+			{stimulus: 'audio/mn/013.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/016.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/019.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/022.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/025.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/028.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/031.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/034.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/037.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/040.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/043.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/046.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/049.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/052.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/025.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/028.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/031.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/034.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/037.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/040.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/043.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/046.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/049.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/052.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/055.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/058.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/061.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+				];
+				
+		// playlist 3
+		var test_stimuli3 = [
+			{stimulus: 'audio/bd/stimulus004.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus007.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus010.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus013.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus016.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus019.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus022.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus025.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus028.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus031.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus034.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus037.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus040.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus013.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus016.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus019.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus022.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus025.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus028.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus031.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus034.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus037.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus040.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus043.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus046.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			{stimulus: 'audio/bd/stimulus049.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
+			//dn bracket now
+			{stimulus: 'audio/dn/018.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/021.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/024.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/027.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/030.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/033.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/036.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/039.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/042.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/045.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/048.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/051.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/054.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/057.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/030.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/033.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/036.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/039.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/042.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/045.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/048.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/051.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/054.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/057.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/060.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/063.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			{stimulus: 'audio/dn/066.wav', segments: "<strong>D</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'dn'}},
+			//mn block
+			{stimulus: 'audio/mn/014.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/017.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/020.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/023.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/026.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/029.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/032.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/035.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/038.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/041.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/044.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/047.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/050.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/023.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/026.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/029.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/032.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/035.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/038.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/041.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/044.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/047.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/050.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/053.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/056.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/059.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+			{stimulus: 'audio/mn/062.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
+		];
+				
+	//main procedures (12, 3 each for dleft/dright, nose/mouth)
+	//dleft_nose
+	var main_procedure_dleft_nose1 = {
 		timeline: [
 			fixation,
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli, 
-		//repetitions://
+		timeline_variables: test_stimuli1,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
 		}
 	};
 	
-	var main_procedure_dleft_mouth = {
+	var main_procedure_dleft_nose2 = {
 		timeline: [
 			fixation,
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli, 
+		timeline_variables: test_stimuli2,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
 		}
 	};
 	
-	var main_procedure_dright_nose = {
+	var main_procedure_dleft_nose3 = {
 		timeline: [
 			fixation,
 			audiopresentation,
 			responselog
 		],
-		timeline_variables:  test_stimuli, 
+		timeline_variables: test_stimuli3,  
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
 		}
 	};
 	
-	var main_procedure_dright_mouth = {
+	//dleft_mouth
+	var main_procedure_dleft_mouth1 = {
 		timeline: [
 			fixation,
 			audiopresentation,
 			responselog
 		],
-		timeline_variables: test_stimuli, 
+		timeline_variables:  test_stimuli1,
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
 		}
 	};
 	
-	// order possibilities (includes rests)
-	if(randomint > 74){
-		timeline.push(main_procedure_dleft_nose);
+	var main_procedure_dleft_mouth2 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables:  test_stimuli2,  
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	var main_procedure_dleft_mouth3 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables:  test_stimuli3, 
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	//dright_nose
+	var main_procedure_dright_nose1 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables:  test_stimuli1,  
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	var main_procedure_dright_nose2 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables: test_stimuli2, 
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	var main_procedure_dright_nose3 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables:  test_stimuli3, 
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	//dright_mouth
+	var main_procedure_dright_mouth1 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables: test_stimuli1, 
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	var main_procedure_dright_mouth2 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables: test_stimuli2,
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',t
+		}
+	};
+	
+	var main_procedure_dright_mouth3 = {
+		timeline: [
+			fixation,
+			audiopresentation,
+			responselog
+		],
+		timeline_variables: test_stimuli3,
+		randomize_order: true,
+		sample : {
+			type: 'without-replacement',
+		}
+	};
+	
+	// 24 order possibilities (includes rests)
+	//DLEFT NOSE
+	//dleft nose A
+	if(randomint > 114){ 
+		timeline.push(main_procedure_dleft_nose1);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dleft_nose);
+		timeline.push(main_procedure_dleft_nose2);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dleft_nose);
+		timeline.push(main_procedure_dleft_nose3);
 		timeline.push(mouth_instr);
-		timeline.push(main_procedure_dleft_mouth);
+		timeline.push(main_procedure_dleft_mouth1);
 		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dleft_mouth);
+		timeline.push(main_procedure_dleft_mouth2);
 		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dleft_mouth);
+		timeline.push(main_procedure_dleft_mouth3);
+	//dleft nose B
+	} else if(randomint > 109){
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+	//dleft nose C
+	} else if(randomint > 104){
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+	//dleft nose D
+	} else if(randomint > 99){
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+	//dleft nose E
+	} else if(randomint > 94){
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+	//dleft nose F
+	} else if(randomint > 89){
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+	//DLEFT MOUTH
+	//dleft mouth A
+	} else if(randomint > 84){
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+	//dleft mouth B
+	} else if(randomint > 79){
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+	//dleft mouth C
+	} else if(randomint > 74){
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+	//dleft mouth D
+	} else if(randomint > 69){
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);	
+	//dleft mouth E
+	} else if(randomint > 64){
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+	//dleft mouth F
+	} else if(randomint > 59){
+		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dleft_nose1);
+	//DRIGHT NOSE
+	//dright nose A
+	} else if(randomint > 54){
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+	//dright nose B
 	} else if(randomint > 49){
-		timeline.push(main_procedure_dleft_mouth);
-		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dleft_mouth);
-		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dleft_mouth);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_instr);
-		timeline.push(main_procedure_dleft_nose);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+	//dright nose C
+	} else if(randomint > 44){
+		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dleft_nose);
+		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dleft_nose);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+	//dright nose D
+	} else if(randomint > 39){
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+	//dright nose E
+	} else if(randomint > 34){
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+	//dright nose F
+	} else if(randomint > 29){
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+	//DRIGHT MOUTH
+	//dright mouth A
 	} else if(randomint > 24){
-		timeline.push(main_procedure_dright_nose);
-		timeline.push(nose_rest);
-		timeline.push(main_procedure_dright_nose);
-		timeline.push(nose_rest);
-		timeline.push(main_procedure_dright_nose);
-		timeline.push(mouth_instr);
-		timeline.push(main_procedure_dright_mouth);
+		timeline.push(main_procedure_dright_mouth1);
 		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dright_mouth);
+		timeline.push(main_procedure_dright_mouth2);
 		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dright_mouth);
-	} else if(randomint < 25){
-		timeline.push(main_procedure_dright_mouth);
-		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dright_mouth);
-		timeline.push(mouth_rest);
-		timeline.push(main_procedure_dright_mouth);
+		timeline.push(main_procedure_dright_mouth3);
 		timeline.push(nose_instr);
-		timeline.push(main_procedure_dright_nose);
+		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dright_nose);
+		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
-		timeline.push(main_procedure_dright_nose);
+		timeline.push(main_procedure_dright_nose3);	
+	//dright mouth B
+	} else if(randomint > 19){
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+	//dright mouth C
+	} else if(randomint > 14){
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+	//dright mouth D
+	} else if(randomint > 9){
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+	//dright mouth E
+	} else if(randomint > 4){
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+	//dright mouth F
+	} else if(randomint < 5){
+		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(mouth_rest);
+		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(nose_instr);
+		timeline.push(main_procedure_dright_nose3);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose2);
+		timeline.push(nose_rest);
+		timeline.push(main_procedure_dright_nose1);
 	}
+	
 
 	//we can also debrief our participants after the study, to tell them how they did!
 		var debrief_block = {
@@ -634,6 +1017,7 @@ There is a brief practice phase before the actual study begins. Press any key to
         	    var all_data = jsPsych.data.get();
         	    var results = all_data.ignore('internal_node_id').ignore('time_elapsed');
             	jatos.submitResultData(results.csv(), jatos.startNextComponent);
+				}
 			}
-		})
+		)
 	);
