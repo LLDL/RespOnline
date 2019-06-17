@@ -208,7 +208,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 	var instr_btwn = {
 		type: "instructions",
 		pages: [
-		"<h2>End of first block.</h2><p> Click <i>Next</i> to continue when you are ready.</p>"
+		"<h2>You're halfway through!</h2><p> Click <i>Next</i> to continue when you are ready.</p>"
 		],
   	 	show_clickable_nav: true,
     	button_label_next: 'Next',
@@ -733,6 +733,10 @@ There is a brief practice phase before the actual study begins. Press any key to
 			{stimulus: 'audio/mn/062.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "mouth", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 		];
 	// test stimuli bank ends here.	
+	
+	// size variable: x number of trials
+	var triallength;
+		triallength = 80;
 				
 	//Here are the main procedures. There are 12 in total, 3 each for dleft/dright, nose/mouth. Each number at the end of 'main_procedure_...1' corresponds to the playlist that will be used for each main procedure block.
 	//dleft_nose
@@ -746,7 +750,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -760,7 +764,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -774,7 +778,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength 
 		}
 	};
 	
@@ -789,7 +793,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -803,7 +807,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -817,7 +821,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -832,7 +836,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -846,7 +850,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -860,7 +864,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -875,7 +879,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength 
 		}
 	};
 	
@@ -889,7 +893,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
@@ -903,7 +907,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
-			size: 80 // x trials, without replacement
+			size: triallength
 		}
 	};
 	
