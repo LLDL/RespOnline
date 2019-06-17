@@ -23,8 +23,8 @@ their nose first then breathe through their mouth, or vice versa. Stimuli will b
 following order: 1) crosshair is quickly shown on the screen, 2) audio is played on a blank screen,
 3) one of the following is displayed on the screen: "D or B?","D or N?", "M or N?". Participants will
 identify which sound they heard by pressing the left or right arrow key (e.g. "D or B?", D = left, 
-B = right). Within each condition (nose, mouth), participants will be given 3 breaks. After 
-completing all trials, participants will be thanked for their participation and given a participant 
+B = right). Within each condition (nose, mouth), participants will be given 5 (2 within each block, 1 between) 
+breaks. After completing all trials, participants will be thanked for their participation and given a participant 
 ID (so we can identify people) which they will need to provide when they claim their RPS credits 
 from the lab.
 	*/
@@ -36,15 +36,6 @@ from the lab.
 	
 	//create a variable called "timeline"; this is what we'll add our trials to
 	var timeline = [];
-	
-	// from Google, has rests in timeline	
-	/* var timeline = [welcome, training];
-		for(var i=0; i<blocks.length; i++){
-  		timeline.push(blocks[i]);
-  		timeline.push(rest);
-		}
-		timeline.push(thankyou);
-*/	
 		
 	//initiate data object, so we can get a subject number from JATOS and show it in debrief
 	var resultData = {};
@@ -54,13 +45,13 @@ from the lab.
 		type: 'instructions',
    		pages: [
         '<h2>Instructions</h2><p>This study involves tasks that involve listening to audio clips. ' +
-			'Please <strong>put on your headphones</strong>.</p><p> To make sure your headphones are set to a ' +
+			'Please <b>put on your headphones</b>.</p><p> To make sure your headphones are set to a ' +
 			'comfortable volume, play the following audio clip and adjust accordingly.</p><audio preload="auto" controls><source src="audio/sample.mp3" type="audio/mpeg"></audio>' + 
 			'<p>This study also requires you to breathe through your nose.</p><p> If you are congested ' + 
-			'or are unable to do this due to other reasons, you are <strong>not</strong> eligible for the study. ' + 
+			'or are unable to do this due to other reasons, you are <b>not</b> eligible for the study. ' + 
 			'If you are congested, please consider doing this study another day.</p>' + 
 			'<p>This study takes about 15 minutes. You will be given four breaks throughout the study.</p>' + 
-			'<p>When you are ready to begin, press <b>Next</b> to begin the study.</p>',
+			'<p>When you are ready to begin, click <i>Next</i> to continue.</p>',
     ],
     	show_clickable_nav: true,
     	button_label_next: 'Next',
@@ -74,17 +65,17 @@ from the lab.
 	var instructions = {
 		type: "instructions",
 		pages: [
-		"<p>In this experiment, we ask you to <strong>breathe</strong> in a " +
-			"certain way while <strong>identifying sounds</strong>.</p>" +
+		"<p>In this experiment, we ask you to <b>breathe</b> in a " +
+			"certain way while <b>identifying sounds</b>.</p>" +
 			"<p>In each trial, you will hear one of two sounds over the headphones, " +
-			"and you will identify which one you heard by pressing the <strong>left</strong> "+
-			"or <strong>right</strong> arrow, as indicated.</p>" +
+			"and you will identify which one you heard by pressing the <b>left</b> "+
+			"or <b>right</b> arrow, as indicated.</p>" +
 			"<p>Please respond as quickly and accurately as possible.</p>" +
-			"<p>During certain blocks of trials, you will be asked to breathe <strong>" +
-			"only through your mouth</strong>, and in others you will be asked to breathe "+
+			"<p>During certain blocks of trials, you will be asked to breathe <b>" +
+			"only through your mouth</b>, and in others you will be asked to breathe "+
 			"<strong>only through your nose</strong>. Please pay attention to which "+
 			"block you are in as you do the study.</p>" +
-			"<p>Press <b>Next</b> to begin the study.</p>",
+			"<p>Click <i>Next</i> to begin the study.</p>",
 		],
 		show_clickable_nav: true,
    		button_label_next: 'Next',
@@ -115,11 +106,12 @@ while doing the task. Please follow the text prompts given to you before each bl
 There is a brief practice phase before the actual study begins. Press any key to continue.
 */
 	
+	// Here are the instructions for the FIRST of the two blocks, nose or mouth depending on the random integer they get.
 	var nose_instr = {
 		type: 'image-keyboard-response',
 		data: {test_part: 'instructions', blocktype: 'nose'},
 		stimulus: 'img/nose.jpeg',
-		prompt: '<p>For this upcoming block, breathe only through your nose.</p>',
+		prompt: '<p>For this upcoming block, <b>breathe only through your nose.</b></p>',
 		choices: jsPsych.NO_KEYS,
 		trial_duration: 2000
 	};
@@ -128,7 +120,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		type: 'image-keyboard-response',
 		data: {test_part: 'instructions', blocktype: 'mouth'},
 		stimulus: 'img/mouth.png',
-		prompt: '<p>For this upcoming block, breathe only through your mouth.</p>',
+		prompt: '<p>For this upcoming block, <b>breathe only through your mouth.</b></p>',
 		choices: jsPsych.NO_KEYS,
 		trial_duration: 2000
 	};
@@ -157,7 +149,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		nvalue = "leftarrow";
 	}
 
-	//defining the parts of the main procedure
+	// These define the parts of the main procedure.
 	var fixation = {type: 'html-keyboard-response',
 		data: {test_part: 'fixation'},
 		stimulus: '<div style="font-size:60px;">+</div>',
@@ -191,31 +183,39 @@ There is a brief practice phase before the actual study begins. Press any key to
 		trial_duration: 15000
 	};
 	
+	// Participants get breaks every 80 trials; they need to click Next to continue.
 	var nose_rest = {
 		type: "instructions",
 		pages: [
-		"<p>Break time!</p><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to nose-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>"
+		"<h2>Break time!</h2><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to <b>nose-breathing</b> at the end of the break!</p><p> Click <i>Next</i> to continue when you are ready.</p>"
 		],
   	 	show_clickable_nav: true,
     	button_label_next: 'Next',
     	allow_keys: false
-    	/* choices: jsPsych.NO_KEYS,
-		trial_duration: 1100 */
 	};
 	
 	var mouth_rest = {
 		type: "instructions",
 		pages: [
-		"<p>Break time!</p><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to mouth-breathing at the end of the break!</p><p> Click <b>Next</b> to continue when you are ready.</div></p>"
+		"<h2>Break time!</h2><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to <b>mouth-breathing</b> at the end of the break!</p><p> Click <i>Next</i> to continue when you are ready.</p>"
 		],
   	 	show_clickable_nav: true,
     	button_label_next: 'Next',
     	allow_keys: false
-    	/* choices: jsPsych.NO_KEYS,
-		trial_duration: 1100 */
+	};
+	
+	// Here are instructions between nose and mouth block or vice versa; they will also need to click Next to continue.
+	var instr_btwn = {
+		type: "instructions",
+		pages: [
+		"<h2>End of first block.</h2><p> Click <i>Next</i> to continue when you are ready.</p>"
+		],
+  	 	show_clickable_nav: true,
+    	button_label_next: 'Next',
+    	allow_keys: false
 	};
 		
-	// test stimuli bank; 3 different playlists 
+	// Below is the test stimuli bank with all the audio stimuli organized in 3 different playlists. Participants will get all 3 in random order, depending on their random integer.
 	// playlist 1
 	var test_stimuli1 = [
 			{stimulus: 'audio/bd/stimulus002.wav', segments: "<strong>D</strong> (left) or <strong>B</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'db'}},
@@ -473,8 +473,9 @@ There is a brief practice phase before the actual study begins. Press any key to
 			{stimulus: 'audio/mn/059.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 			{stimulus: 'audio/mn/062.wav', segments: "<strong>M</strong> (left) or <strong>N</strong> (right)?", choices: ['leftarrow','rightarrow'], data: {blocktype: "nose", dvalue: dvalue, nvalue: nvalue, test_part: 'test', stimtype: 'mn'}},
 		];
+	// test stimuli bank ends here.	
 				
-	//main procedures (12, 3 each for dleft/dright, nose/mouth)
+	//Here are the main procedures. There are 12 in total, 3 each for dleft/dright, nose/mouth. Each number at the end of 'main_procedure_...1' corresponds to the playlist that will be used for each main procedure block.
 	//dleft_nose
 	var main_procedure_dleft_nose1 = {
 		timeline: [
@@ -486,6 +487,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -499,6 +501,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -512,6 +515,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -526,6 +530,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -539,6 +544,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -552,6 +558,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -566,6 +573,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -579,6 +587,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -592,6 +601,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -606,6 +616,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -619,6 +630,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
@@ -632,10 +644,12 @@ There is a brief practice phase before the actual study begins. Press any key to
 		randomize_order: true,
 		sample : {
 			type: 'without-replacement',
+			size: 3 // x trials, without replacement
 		}
 	};
 	
-	// 24 order possibilities (includes rests)
+	// There are 24 order possibilities; each considers nose/mouth and playlist order. The random integer will determine which one a participant gets.
+	// playlist orders are: A = 1, 2, 3; B = 1, 3, 2; C = 2, 1, 3; D = 2, 3, 1; E = 3, 1, 2; F = 3, 2, 1
 	//DLEFT NOSE
 	//dleft nose A
 	if(randomint > 114){ 
@@ -644,6 +658,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose2);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose3);
+		timeline.push(instr_btwn);
 		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth1);
 		timeline.push(mouth_rest);
@@ -657,7 +672,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose3);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose2);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth3);
@@ -670,7 +686,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose1);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose3);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth1);
@@ -683,7 +700,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose3);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose1);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth3);
@@ -696,7 +714,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose1);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose2);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth1);
@@ -709,7 +728,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_nose2);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dleft_nose1);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dleft_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth2);
@@ -723,6 +743,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose1);
 		timeline.push(nose_rest);
@@ -736,6 +757,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose1);
 		timeline.push(nose_rest);
@@ -749,6 +771,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth3);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose2);
 		timeline.push(nose_rest);
@@ -762,6 +785,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose2);
 		timeline.push(nose_rest);
@@ -775,6 +799,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth2);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose3);
 		timeline.push(nose_rest);
@@ -788,6 +813,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dleft_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dleft_mouth1);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dleft_nose3);
 		timeline.push(nose_rest);
@@ -802,7 +828,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose3);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth2);
@@ -815,7 +842,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose3);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose2);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth3);
@@ -828,7 +856,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose3);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth1);
@@ -841,7 +870,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose3);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose1);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth3);
@@ -854,7 +884,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose2);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth1);
@@ -867,7 +898,8 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
 		timeline.push(main_procedure_dright_nose1);
-		timeline.push(nose_instr);
+		timeline.push(instr_btwn);
+		timeline.push(mouth_instr);
 		timeline.push(main_procedure_dright_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth2);
@@ -881,6 +913,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
@@ -894,6 +927,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose1);
 		timeline.push(nose_rest);
@@ -907,6 +941,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth3);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
@@ -920,6 +955,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth3);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose2);
 		timeline.push(nose_rest);
@@ -933,6 +969,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth1);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth2);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose3);
 		timeline.push(nose_rest);
@@ -946,6 +983,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		timeline.push(main_procedure_dright_mouth2);
 		timeline.push(mouth_rest);
 		timeline.push(main_procedure_dright_mouth1);
+		timeline.push(instr_btwn);
 		timeline.push(nose_instr);
 		timeline.push(main_procedure_dright_nose3);
 		timeline.push(nose_rest);
@@ -1017,7 +1055,6 @@ There is a brief practice phase before the actual study begins. Press any key to
         	    var all_data = jsPsych.data.get();
         	    var results = all_data.ignore('internal_node_id').ignore('time_elapsed');
             	jatos.submitResultData(results.csv(), jatos.startNextComponent);
-				}
 			}
-		)
+		})
 	);
