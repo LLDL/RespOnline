@@ -743,7 +743,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 	
 	// size variable: x number of trials
 	var blocksize;
-		blocksize = 1;
+		blocksize = 80;
 				
 	/*Here are the main procedures. There are 12 in total, 3 each for dleft/dright, nose/mouth. 
 	Each number at the end of 'main_procedure_...1' corresponds to the playlist that will be used 
