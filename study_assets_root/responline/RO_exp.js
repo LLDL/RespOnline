@@ -111,7 +111,7 @@ There is a brief practice phase before the actual study begins. Press any key to
 		type: 'image-keyboard-response',
 		data: {test_part: 'instructions', blocktype: 'nose'},
 		stimulus: 'img/nose.jpeg',
-		prompt: '<p>For this upcoming block, <b>breathe only through your nose.</b></p>',
+		prompt: '<p>For this upcoming block, keep your mouth slightly open and <b>breathe only through your nose.</b></p>.',
 		choices: jsPsych.NO_KEYS,
 		trial_duration: 2000
 	};
@@ -199,8 +199,9 @@ There is a brief practice phase before the actual study begins. Press any key to
 		type: 'image-keyboard-response',
 		data: {test_part: 'fixation', blocktype: 'nose'},
   		stimulus: 'img/nose.jpeg',
-  		prompt: '<h2>Break time!</h2><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to <b>nose-breathing</b> at the end of the break!</p><p> Press the <i>spacebar</i> to continue when you are ready.</p>',
+  		prompt: '<h2>Break time!</h2><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to <b>nose-breathing</b> (with your mouth still slightly open) at the end of the break!</p><p> Press the <i>spacebar</i> to continue when you are ready.</p>',
   		choices: [32],
+  		trial_duration: 15000,
 	};
 	
 	var mouth_rest = {
@@ -209,6 +210,7 @@ There is a brief practice phase before the actual study begins. Press any key to
   		stimulus: 'img/mouth.png',
   		prompt: '<h2>Break time!</h2><p> Feel free to breathe as you like, but please stay on this screen.</p><p>Remember to return to <b>mouth-breathing</b> at the end of the break!</p><p> Press the <i>spacebar</i> to continue when you are ready.</p>',
   		choices: [32],
+  		trial_duration: 15000,
   	};
 	
 	// Here are instructions between nose and mouth block or vice versa; they will also need to click Next to continue.
